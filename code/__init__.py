@@ -33,3 +33,19 @@ def flux(mag):
       object flux
     """
     return 10.**(-0.4*mag)
+
+def fibonacci(n):
+    """returns nth number in fibonacci sequence
+    Parameters:
+    -----------
+    n: int
+      index of fibonacci desired
+    Returns:
+    --------
+    fib: int
+       nth fibonacci number
+    """
+    x,y = 0,1
+    for _ in range(n):
+        x,y = y,x+y
+    return x 
