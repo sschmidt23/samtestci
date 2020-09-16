@@ -11,7 +11,6 @@ def magnitude(flux, zeroPoint):
       float value object flux
     zeroPoint: 'float'
       float value mag zero point for specific band
-    add a long line to see if pytest complains here ............................................................
     Returns
     -------
     magnitude: 'float'
@@ -32,6 +31,7 @@ def flux(mag):
     flux: 'float'
       object flux
     """
+    print("here is a very long line to test whether the linter will complain or not, this should make the linter score a little lower than 10/10")
     return 10.**(-0.4*mag)
 
 def fibonacci(n):
