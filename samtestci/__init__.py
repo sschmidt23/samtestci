@@ -11,7 +11,7 @@ def magnitude(flux, zeroPoint):
       float value object flux
     zeroPoint: 'float'
       float value mag zero point for specific band
-    
+    add a long line to see if pytest complains here ............................................................
     Returns
     -------
     magnitude: 'float'
