@@ -1,5 +1,5 @@
 import unittest
-from testCI import code
+import testCI.testCI as code
 
 class TestMethods(unittest.TestCase):
     """quick unit tests
