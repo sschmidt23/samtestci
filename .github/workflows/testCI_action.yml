@@ -30,7 +30,7 @@ jobs:
       run: |
         pip install pylint
         # stop the build if there are Pylint errors
-        pylint --disable=all --enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode --extension-pkg-whitelist=numpy --init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())' testCI
+        pylint --disable=all --enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode --extension-pkg-whitelist=numpy --init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())' samtestci
     - name: Test with pytest
       run: |
         pytest
