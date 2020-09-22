@@ -1,3 +1,6 @@
+"""
+  Simple set of tests
+"""
 import unittest
 import samtestci as code
 
@@ -7,7 +10,7 @@ class TestMethods(unittest.TestCase):
     ---------
     None
     """
-    
+
     def test_mag(self):
         """test magnitude
         Parameters
@@ -34,7 +37,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(code.fibonacci(9),34)
 
     def test_fibonacci_zero(self):
-        """test the zero case of fibonacci 
+        """test the zero case of fibonacci
            should return 0
         Parameters:
         -----------

@@ -37,7 +37,7 @@ jobs:
         pylint --extension-pkg-whitelist=numpy --init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())' samtestci
     - name: Test with pytest
       run: |
-        black --check ./samtestci ./tests
+        black ./samtestci ./tests
         pytest --cov=./samtestci --cov-report=xml
     - name: upload coverage to Codecov
       uses: codecov/codecov-action@v1
