@@ -2,25 +2,25 @@
 quick unit test example (to test Travis-CI)
 """
 import math
-def magnitude(flux, zeroPoint):
-    """returns magnitude 
+def magnitude(in_flux, zero_point):
+    """returns magnitude
 
     Parameters
     ----------
     flux: 'float'
       float value object flux
-    zeroPoint: 'float'
+    zero_point: 'float'
       float value mag zero point for specific band
     Returns
     -------
     magnitude: 'float'
       object magnitude
     """
-    return -2.5*math.log10(flux) + zeroPoint
+    return -2.5*math.log10(in_flux) + zero_point
 
 def flux(mag):
     """returns flux given magnitude
-    
+
     Parameters
     ----------
     mag: 'float'
@@ -31,10 +31,10 @@ def flux(mag):
     flux: 'float'
       object flux
     """
-    print("here is a very long line to test whether the linter will complain or not, this should make the linter score a little lower than 10/10")
+    print("here is a short line")
     return 10.**(-0.4*mag)
 
-def fibonacci(n):
+def fibonacci(n_n):
     """returns nth number in fibonacci sequence
     Parameters:
     -----------
@@ -46,6 +46,6 @@ def fibonacci(n):
        nth fibonacci number
     """
     x,y = 0,1
-    for _ in range(n):
+    for _ in range(n_n):
         x,y = y,x+y
-    return x 
+    return x
