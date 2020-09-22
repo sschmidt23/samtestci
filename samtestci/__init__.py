@@ -45,7 +45,7 @@ def fibonacci(n_n):
     fib: int
        nth fibonacci number
     """
-    x,y = 0,1
+    x_var,y_var = 0,1
     for _ in range(n_n):
-        x,y = y,x+y
-    return x
+        x_var,y_var = y_var,x_var+y_var
+    return x_var
