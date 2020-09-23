@@ -27,7 +27,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
 	pip install wheel
-        pip install -U setuptools
+	pip install -U setuptools
         pip install flake8 pytest pytest-cov black==20.8b1 .
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Display Python version
@@ -37,6 +37,9 @@ jobs:
         pip install pylint
         # stop the build if there are Pylint errors
         pylint --extension-pkg-whitelist=numpy --init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())' samtestci
+    - name: set path
+      run: |
+        export PYTHONPATH=.:$PYTHONPATH
     - name: Test with pytest
       run: |
         black ./samtestci ./tests
