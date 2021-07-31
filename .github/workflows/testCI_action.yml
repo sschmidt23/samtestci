@@ -53,6 +53,7 @@ jobs:
         git status
         git add /home/runner/work/samtestci/samtestci/docs/notebooks/*.html
         git commit -m "render docs to html"
+        git push --set-upstream origin rendered
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
