@@ -47,7 +47,8 @@ jobs:
         cp *.html docs/notebooks/
         git add .
         git add *.html
-        git add /home/runner/work/samtestci/samtestci/rendered/docs/notebooks/*.html
+	git status
+        git add /home/runner/work/samtestci/samtestci/docs/notebooks/*.html
         git commit -m "render docs to html"
     - name: Push changes
       uses: ad-m/github-push-action@master
