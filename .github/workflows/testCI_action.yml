@@ -45,12 +45,12 @@ jobs:
         git rm -f *.html
         git add quick_demo.html
         git commit -m "render docs to html"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: rendered
-          directory: rendered
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: rendered
+        directory: rendered
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Test with pytest
       run: |
