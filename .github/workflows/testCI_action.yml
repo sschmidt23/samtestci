@@ -34,11 +34,13 @@ jobs:
     - name: render notebook
       run: |
         jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb 
-        cp docs/notebooks/quick_demo.html .
-
+        echo "finished rendering notebook"
         git config user.name ${{ secrets.GH_USER }}
         git config user.email "${{ secrets.GH_MAIL }}"
+        with:
+          credentials: ${{secrets.GIT_CREDENTIALS}}
         git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/:user/:repo.git"
+        echo "check out rendered branch"
         git checkout --orphan rendered
         git rm -f docs/notebooks/*.html
         git add docs/notebooks/quick_demo.html
