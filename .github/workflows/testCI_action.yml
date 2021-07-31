@@ -48,7 +48,6 @@ jobs:
         git fetch
         git checkout origin/rendered
         git switch -c rendered
-        git rm -f docs/notebooks/*.html
         mv *.html docs/notebooks/
         git add docs/notebooks/*.html
         git add /home/runner/work/samtestci/samtestci/docs/notebooks/*.html
