@@ -44,8 +44,7 @@ jobs:
         git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sschmidt23/samtestci.git"
         echo "check out rendered branch"
         git checkout --orphan rendered
-        git rm -f *.html
-        git add ./quick_demo.html
+        git add .
         git commit -m "render docs to html"
     - name: Push changes
       uses: ad-m/github-push-action@master
