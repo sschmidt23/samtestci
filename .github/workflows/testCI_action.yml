@@ -33,8 +33,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: render notebook
       run: |
-        jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb 
+        jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/demo.html . 
         cp docs/notebooks/quick_demo.html .
+        echo "see if file is here locally"
+	ls *.html
         echo "finished rendering notebook"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
@@ -43,7 +45,7 @@ jobs:
         echo "check out rendered branch"
         git checkout --orphan rendered
         git rm -f *.html
-        git add quick_demo.html
+        git add ./quick_demo.html
         git commit -m "render docs to html"
     - name: Push changes
       uses: ad-m/github-push-action@master
