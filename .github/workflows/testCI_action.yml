@@ -43,9 +43,8 @@ jobs:
         echo "add token to repo"
         git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sschmidt23/samtestci.git"
         echo "check out rendered branch"
-        git submodule add https://github.com/sschmidt23/samtestci.git rendered
-        cp *.html /home/runner/work/samtestci/samtestci/rendered/docs/notebooks
-        cd rendered
+        git checkout rendered
+        cp *.html docs/notebooks/
         git add .
         git add *.html
         git add /home/runner/work/samtestci/samtestci/rendered/docs/notebooks/*.html
