@@ -44,11 +44,11 @@ jobs:
         git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sschmidt23/samtestci.git"
         echo "check out rendered branch"
         git submodule add https://github.com/sschmidt23/samtestci.git rendered
-        cp *.html rendered/docs/notebooks
+        cp *.html /home/runner/work/samtestci/samtestci/rendered/docs/notebooks
         cd rendered
         git add .
         git add *.html
-        git add docs/notebooks/*.html
+        git add /home/runner/work/samtestci/samtestci/rendered/docs/notebooks/*.html
         git commit -m "render docs to html"
     - name: Push changes
       uses: ad-m/github-push-action@master
