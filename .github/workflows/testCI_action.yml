@@ -44,7 +44,6 @@ jobs:
         git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sschmidt23/samtestci.git"
         echo "check out rendered branch"
         git clone https://github.com/sschmidt23/samtestci.git --branch rendered --single-branch rendered
-        git checkout rendered
         git add .
         git add *.html
         git add docs/notebooks/*.html
