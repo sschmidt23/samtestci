@@ -33,7 +33,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: render notebook
       run: |
-        jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/demo.html . 
+        jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/quick_demo.html . 
         cp docs/notebooks/quick_demo.html .
         echo "see if file is here locally"
         ls *.html
