@@ -35,7 +35,7 @@ jobs:
       run: |
         jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/quick_demo.html . 
         mv docs/notebooks/*.html .
-	rm -f code/__pycache__/__init__.cpython-37.pyc
+        rm -f code/__pycache__/__init__.cpython-37.pyc
         echo "see if file is here locally"
         ls *.html
         echo "finished rendering notebook"
