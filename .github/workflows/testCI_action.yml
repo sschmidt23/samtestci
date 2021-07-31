@@ -47,11 +47,11 @@ jobs:
         git fetch
         git checkout origin/rendered
         git switch -c rendered
+	git rm -f docs/notebooks/*.html
         cp *.html docs/notebooks/
-        git add .
-        git add *.html
-        git status
+        git add docs/notebooks/*.html
         git add /home/runner/work/samtestci/samtestci/docs/notebooks/*.html
+        git status
         git commit -m "render docs to html"
         git push --set-upstream origin rendered
     - name: Test with pytest
