@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -39,7 +39,8 @@ jobs:
         git config user.email "${{ secrets.GH_MAIL }}"
         with:
           credentials: ${{secrets.GIT_CREDENTIALS}}
-        git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/:user/:repo.git"
+        echo "add token to repo"
+        git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sschmidt23/samtestci.git"
         echo "check out rendered branch"
         git checkout --orphan rendered
         git rm -f docs/notebooks/*.html
