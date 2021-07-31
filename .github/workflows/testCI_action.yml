@@ -34,7 +34,8 @@ jobs:
     - name: render notebook
       run: |
         jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/quick_demo.html . 
-        cp docs/notebooks/quick_demo.html .
+        mv docs/notebooks/*.html .
+	rm -f code/__pycache__/__init__.cpython-37.pyc
         echo "see if file is here locally"
         ls *.html
         echo "finished rendering notebook"
@@ -48,7 +49,7 @@ jobs:
         git checkout origin/rendered
         git switch -c rendered
         git rm -f docs/notebooks/*.html
-        cp *.html docs/notebooks/
+        mv *.html docs/notebooks/
         git add docs/notebooks/*.html
         git add /home/runner/work/samtestci/samtestci/docs/notebooks/*.html
         git status
