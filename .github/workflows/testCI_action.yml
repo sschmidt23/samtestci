@@ -53,4 +53,4 @@ jobs:
         git push --set-upstream origin rendered
     - name: Test with pytest
       run: |
-        pytest tests.py
+        python -m pytest tests.py
