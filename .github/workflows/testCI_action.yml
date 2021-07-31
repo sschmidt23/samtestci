@@ -46,6 +46,7 @@ jobs:
         git remote update
         git fetch
         git checkout origin/rendered
+        git switch -c rendered
         cp *.html docs/notebooks/
         git add .
         git add *.html
