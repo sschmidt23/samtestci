@@ -43,7 +43,9 @@ jobs:
         echo "add token to repo"
         git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sschmidt23/samtestci.git"
         echo "check out rendered branch"
-        git checkout rendered
+	git remote update
+	git fetch
+        git checkout origin/rendered
         cp *.html docs/notebooks/
         git add .
         git add *.html
