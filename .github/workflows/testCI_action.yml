@@ -45,7 +45,7 @@ jobs:
         echo "check out rendered branch"
         git checkout --orphan rendered
         git add .
-	git add *.html
+        git add *.html
         git add docs/notebooks/*.html
         git commit -m "render docs to html"
     - name: Push changes
