@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -22,6 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install jupyter numpy matplotlib
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
@@ -30,6 +31,26 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: render notebook
+      run: |
+        jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/quick_demo.html . 
+        mv docs/notebooks/*.html .
+        rm -f code/__pycache__/__init__.cpython-37.pyc
+        echo "see if file is here locally"
+        ls *.html
+        echo "finished rendering notebook"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        echo "check out rendered branch"
+        git remote update
+        git fetch
+        git checkout origin/rendered
+        git switch -c rendered
+        mv *.html docs/notebooks/
+        git add docs/notebooks/*.html
+        git status
+        git commit -m "render docs to html"
+        git push --set-upstream origin rendered
     - name: Test with pytest
       run: |
-        pytest
+        python -m pytest tests.py
