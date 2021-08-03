@@ -1,4 +1,4 @@
-from code import flux, magnitude, fibonacci
+from samtestcode import flux, magnitude, fibonacci
 import numpy as np
 
 

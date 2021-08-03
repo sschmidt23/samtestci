@@ -2,7 +2,7 @@ from setuptools import setup, find_namespace_packages
 
 packages = find_namespace_packages()
 setup(
-    name="samtestci",
+    name="samtestcode",
     version="0.1.dev0",
     author="Sam",
     author_email="sam@sam.edu",
