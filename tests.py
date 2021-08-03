@@ -1,5 +1,5 @@
 import unittest
-import code
+import samtestcode
 
 class TestMethods(unittest.TestCase):
     """quick unit tests
@@ -14,7 +14,7 @@ class TestMethods(unittest.TestCase):
         ----------
         None
         """
-        self.assertAlmostEqual(code.magnitude(100., 0.), -5.)
+        self.assertAlmostEqual(samtestcode.magnitude(100., 0.), -5.)
 
     def test_flux(self):
         """test flux function
@@ -22,7 +22,7 @@ class TestMethods(unittest.TestCase):
         ----------
         None
         """
-        self.assertAlmostEqual(code.flux(-5.), 100.)
+        self.assertAlmostEqual(samtestcode.flux(-5.), 100.)
 
     def test_fibonacci(self):
         """test the fibonacci function for 9, should yield
@@ -31,7 +31,7 @@ class TestMethods(unittest.TestCase):
         -----------
         None
         """
-        self.assertEqual(code.fibonacci(9),34)
+        self.assertEqual(samtestcode.fibonacci(9),34)
 
     def test_fibonacci_zero(self):
         """test the zero case of fibonacci 
@@ -40,7 +40,7 @@ class TestMethods(unittest.TestCase):
         -----------
         None
         """
-        self.assertEqual(code.fibonacci(0),0)
+        self.assertEqual(samtestcode.fibonacci(0),0)
 
 if __name__ == "__main__":
     unittest.main()

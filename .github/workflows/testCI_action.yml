@@ -25,6 +25,7 @@ jobs:
         pip install jupyter numpy matplotlib
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python setup.py install
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -33,7 +34,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: render notebook
       run: |
-        jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/quick_demo.html . 
+        python -m jupyter nbconvert --ExecutePreprocessor.kernel_name=python --ExecutePreprocessor.timeout=600 --to html --execute docs/notebooks/quick_demo.ipynb; cp docs/notebooks/quick_demo.html . 
         mv docs/notebooks/*.html .
         rm -f code/__pycache__/__init__.cpython-37.pyc
         echo "see if file is here locally"
